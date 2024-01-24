@@ -1,8 +1,16 @@
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const data = await fetch("https://dev.codedang.com/api/contest");
   const json = JSON.stringify(await data.json());
+
+  const data2 = await fetch(
+    "https://dev.codedang.com/api/problem?workbookId=1&take=3"
+  );
+
+  const json2 = JSON.stringify(await data2.json());
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -43,6 +51,8 @@ export default async function Home() {
           priority
         />
       </div>
+
+      <div>DATA2: {json2}</div>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
