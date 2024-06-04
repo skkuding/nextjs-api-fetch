@@ -3,13 +3,10 @@ import Image from "next/image";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const data = await fetch("https://stage.codedang.com/api/contest");
+  const data = await fetch("https://stage.codedang.com/api/contest/finished");
   const json = JSON.stringify(await data.json());
 
-  const data2 = await fetch(
-    "https://stage.codedang.com/api/problem?workbookId=1&take=3"
-  );
-
+  const data2 = await fetch("https://stage.codedang.com/api/problem");
   const json2 = JSON.stringify(await data2.json());
 
   return (
